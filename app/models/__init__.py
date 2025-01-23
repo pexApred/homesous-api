@@ -1,5 +1,5 @@
-from .Freezer import Freezer
-from .Pantry import Pantry
-from .Recipe import Recipe
-from . Refrigerator import Refrigerator
-from .User import User
+from .freezer import Freezer
+from .pantry import Pantry
+from .recipe import Recipe
+from . refrigerator import Refrigerator
+from .user import User
