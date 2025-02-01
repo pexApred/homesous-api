@@ -66,7 +66,7 @@ class Database:
             self.conn.commit()
         except psycopg2.Error as e:
             print(f"Error executing query: {e}")
-           
+
     # Query to fetch results from the database : SELECT : Explicitly fetch the results
     def fetch_query_results(self):            
         # Fetch all the results from the cursor object as a list of tuples 
@@ -74,21 +74,12 @@ class Database:
         return results if self.curs else None
     # Can modulize further by having control over how many rows to retrieve : "def fetch_one(self):" or "def fetch_many(self, size):"
 
-
-
-# with conn:
-#     with conn.cursor() as curs:
-#         curs.execute('SELECT * FROM users;')
-    
-#     with conn.cursor() as curs:
-#         curs.execute('SELECT * FROM freezer;')
-    
-#     with conn.cursor() as curs:
-#         curs.execute('SELECT * FROM pantry;')
-
-#     with conn.cursor() as curs:
-#         curs.execute('SELECT * FROM refrigerator;')
-    
-#     results = curs.fetchall()
-
-#     print(results)
+# Test the Database class & Check Connection to postgres: default database prior to creating own database
+if __name__ == "__main__":
+    try: 
+        with Database() as db:
+            db.query("SELECT 1;")  # Simple query to check connection
+            result = db.curs.fetchone()
+            print(f"WORKING?: {result}")
+    except Exception as e:
+        print(f"Database connection failed: {e}")
