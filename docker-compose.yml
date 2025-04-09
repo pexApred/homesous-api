@@ -2,22 +2,10 @@
 version: '3.1'
 
 services:
-
-  # db:
-  #   image: mysql
-  #   restart: always
-  #   environment:
-  #     MYSQL_ROOT_PASSWORD: qwerty
-  #     MYSQL_DATABASE: newsfeed
-  #   ports:
-  #     - "33066:3306"
-
   postgres:
     image: postgres
     restart: always
-    environment:
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: qwerty
-      POSTGRES_DB: recipe_db
+    env_file: 
+      - ".env"
     ports:
-      - "54332:5432"
+      - "${DB_PORT}:5432"
