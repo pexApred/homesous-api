@@ -1,5 +1,5 @@
-from .freezer import Freezer
-from .pantry import Pantry
-from .recipe import Recipe
-from . refrigerator import Refrigerator
-from .user import User
+from app.models.ingredient import Ingredient
+from app.models.recipe import Recipe
+from app.models.recipe_ingredient import RecipeIngredient
+
+__all__ = ['Ingredient', 'Recipe', 'RecipeIngredient']
